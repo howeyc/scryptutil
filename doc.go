@@ -24,8 +24,6 @@ versa.
 */
 package main
 
-//BUG(dchest): Parameters for KDF during encryption are hardcoded to N=2¹⁵, r=8, p=1.
-
 //BUG(dchest): Passwords are echoed to terminal when entering them.
 
 //BUG(dchest): None of the original scrypt utility flags are supported.
