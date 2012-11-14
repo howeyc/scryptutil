@@ -4,8 +4,6 @@
 
 package main
 
-//TODO(dchest): implement flags maxmem, maxmemfrac, maxtime.
-
 import (
 	"bufio"
 	"bytes"
@@ -20,6 +18,12 @@ import (
 const (
 	headerMagic   = "scrypt"
 	headerVersion = 0
+)
+
+var (
+	flagMaxTime    int64
+	flagMaxMemFrac float64
+	flagMaxMem     int64
 )
 
 type params struct {
@@ -100,6 +104,9 @@ func usage() {
 
 func main() {
 	log.SetFlags(0)
+	flag.Int64Var(&flagMaxTime, "t", 5, "maximum time in seconds to spend computing encryption key from password")
+	flag.Float64Var(&flagMaxMemFrac, "m", 0.5, "fraction of memory to use for computing encryption key from password")
+	flag.Int64Var(&flagMaxMem, "M", 1048576, "maximum memory in bytes to use computing encryption key from password")
 	flag.Parse()
 	// Check arguments.
 	if flag.NArg() < 2 || flag.Arg(0) != "enc" && flag.Arg(0) != "dec" {

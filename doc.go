@@ -25,5 +25,3 @@ versa.
 package main
 
 //BUG(dchest): Passwords are echoed to terminal when entering them.
-
-//BUG(dchest): None of the original scrypt utility flags are supported.

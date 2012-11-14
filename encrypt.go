@@ -39,10 +39,11 @@ func encrypt(r io.Reader, w io.Writer, password []byte) error {
 	if _, err := io.ReadFull(rand.Reader, salt); err != nil {
 		return err
 	}
+	paramlogN, paramr, paramp := getParams()
 	p := &params{
-		logN: byte(getlogN()),
-		r:    8,
-		p:    1,
+		logN: byte(paramlogN),
+		r:    paramr,
+		p:    paramp,
 		salt: salt,
 	}
 	keyEnc, keyHmac, err := deriveKeys(password, p)
