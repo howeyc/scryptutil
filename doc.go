@@ -23,5 +23,3 @@ versa.
 
 */
 package main
-
-//BUG(dchest): Passwords are echoed to terminal when entering them.

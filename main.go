@@ -5,7 +5,6 @@
 package main
 
 import (
-	"bufio"
 	"bytes"
 	"flag"
 	"fmt"
@@ -13,6 +12,7 @@ import (
 	"os"
 
 	"code.google.com/p/go.crypto/scrypt"
+	"github.com/howeyc/gopass"
 )
 
 const (
@@ -49,27 +49,10 @@ func clearBytes(b []byte) {
 	}
 }
 
-func scanLine(r *bufio.Reader, msg string) (line []byte, err error) {
-	fmt.Printf(msg)
-	line, err = r.ReadBytes('\n')
-	if err != nil {
-		return nil, err
-	}
-	if line[len(line)-1] == '\n' {
-		drop := 1
-		if len(line) > 1 && line[len(line)-2] == '\r' {
-			drop = 2
-		}
-		line = line[:len(line)-drop]
-	}
-	return
-}
-
 func askForPassword(confirm bool) (password []byte, err error) {
-	//TODO(dchest): turn off terminal echo.
-	r := bufio.NewReader(os.Stdin)
 	for {
-		password, err = scanLine(r, "Enter passphrase: ")
+		fmt.Printf("Enter passphrase: ")
+		password = gopass.GetPasswd()
 		if err != nil {
 			return
 		}
@@ -77,7 +60,8 @@ func askForPassword(confirm bool) (password []byte, err error) {
 			break
 		}
 		var confirmation []byte
-		confirmation, err = scanLine(r, "Confirm passphrase: ")
+		fmt.Printf("Confirm passphrase: ")
+		confirmation = gopass.GetPasswd()
 		if err != nil {
 			return
 		}

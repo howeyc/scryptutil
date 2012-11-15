@@ -22,10 +22,3 @@ INSTALLATION
 
     $ go get github.com/dchest/scryptutil
 
-BUGS
-
-    Parameters for KDF during encryption are hardcoded to N=2¹⁵, r=8, p=1.
-
-    Passwords are echoed to terminal when entering them.
-
-    None of the original scrypt utility flags are supported.
