@@ -95,8 +95,20 @@ func main() {
 	flag.Int64Var(&flagMaxMem, "M", int64(physmem.Total), "maximum memory in bytes to use computing encryption key from password")
 	flag.Parse()
 	// Check arguments.
-	if flag.NArg() < 2 || flag.Arg(0) != "enc" && flag.Arg(0) != "dec" {
+	if flag.NArg() < 2 || flag.Arg(0) != "enc" && flag.Arg(0) != "dec" && flag.Arg(0) != "info" {
 		usage()
+	}
+	if flag.Arg(0) == "info" {
+		in, err := os.Open(flag.Arg(1))
+		if err != nil {
+			log.Fatalf("%s", err)
+		}
+		e := displayInfo(in)
+		if e != nil {
+			log.Fatalf("%s", e)
+		}
+		in.Close()
+		os.Exit(0)
 	}
 	// Ask for password.
 	password, err := askForPassword(flag.Arg(0) == "enc")
