@@ -83,7 +83,9 @@ func askForPassword(confirm bool) (password []byte, err error) {
 }
 
 func usage() {
-	fmt.Printf("Usage: %s {enc | dec} infile [outfile]\n", os.Args[0])
+	fmt.Printf("Usage: %s {enc | dec | info} infile [outfile]\n", os.Args[0])
+	fmt.Println("Optional flags:")
+	flag.PrintDefaults()
 	os.Exit(1)
 }
 

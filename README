@@ -8,7 +8,7 @@ COMMAND
 
     Usage:
 
-	scryptutil {enc | dec} infile [outfile]
+	scryptutil {enc | dec | info} infile [outfile]
 
     If outfile is not given, the program writes to the standard output.
 
