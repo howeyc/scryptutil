@@ -15,7 +15,7 @@
       "archive": {
         "os": {
           "linux": "TarGz",
-          "darwin": "TarGz"
+          "darwin": "TarGz",
           "freebsd": "TarGz"
         }
       }
