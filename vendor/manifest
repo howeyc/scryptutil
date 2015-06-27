@@ -1,0 +1,31 @@
+{
+	"version": 0,
+	"dependencies": [
+		{
+			"importpath": "github.com/howeyc/gopass",
+			"repository": "https://github.com/howeyc/gopass",
+			"revision": "2c70fa70727c953c51695f800f25d6b44abb368e",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/howeyc/memstatus",
+			"repository": "https://github.com/howeyc/memstatus",
+			"revision": "c752a674324d0eed29ed588f5ebb0e60d5b0d26d",
+			"branch": "master"
+		},
+		{
+			"importpath": "golang.org/x/crypto/scrypt",
+			"repository": "https://go.googlesource.com/crypto",
+			"revision": "f1b99bc9f1eb185629f6c4b5bd983dd66da2e0e8",
+			"branch": "master",
+			"path": "/scrypt"
+		},
+		{
+			"importpath": "golang.org/x/crypto/pbkdf2",
+			"repository": "https://go.googlesource.com/crypto",
+			"revision": "f1b99bc9f1eb185629f6c4b5bd983dd66da2e0e8",
+			"branch": "master",
+			"path": "/pbkdf2"
+		}
+	]
+}

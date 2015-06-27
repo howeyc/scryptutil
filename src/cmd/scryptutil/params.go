@@ -5,8 +5,9 @@
 package main
 
 import (
-	"code.google.com/p/go.crypto/scrypt"
 	"time"
+
+	"golang.org/x/crypto/scrypt"
 )
 
 func getParams() (logN uint, r, p int) {

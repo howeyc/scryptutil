@@ -11,9 +11,9 @@ import (
 	"log"
 	"os"
 
-	"code.google.com/p/go.crypto/scrypt"
 	"github.com/howeyc/gopass"
 	"github.com/howeyc/memstatus"
+	"golang.org/x/crypto/scrypt"
 )
 
 const (
